@@ -1,0 +1,8 @@
+1) onLoad
+
+onLoad Client Scripts execute script logic when forms are loaded. Use onLoad Client Scripts to manipulate a form's appearance or content. 
+
+For example, setting field or form-level messages based on the presence of a value. 
+Use onLoad Client Scripts sparingly as they impact form load times.
+
+2) 
