@@ -1,8 +1,112 @@
-1) onLoad
+=> OnLoad
 
-onLoad Client Scripts execute script logic when forms are loaded. Use onLoad Client Scripts to manipulate a form's appearance or content. 
+Major use cases of OnLoad Client Script
 
-For example, setting field or form-level messages based on the presence of a value. 
-Use onLoad Client Scripts sparingly as they impact form load times.
+1) Showing P1 message alert if the priority of current incident is p1.
+2) Setting logged user in the caller field on incident form.
+3) Showing message at the top of the form if the caller is VIP user
 
-2) 
+
+#1) Scenario
+
+When P1 Incident is opened then there should be an alert which
+
+#2) Scenario
+
+when new incident form is opened then calleer should be populated automatically with current logged in user
+
+Function onLoad() {
+
+if(g_form.isNewRecord()){
+var uSysID = g_user.userID;
+var uValue = g_user.getFullName();
+g_form.setValue('caller_id',uSYSID,uValue);
+}
+}
+
+
+
+=> onSubmit
+
+when a form is submitted. It is usually used to validate things on the form before the submission of the form
+
+Major use cases of onSubmit 
+
+1) Showing alert before creation of P1 Incident
+2) Stop user for creating the incident if Assignment group is not correct as per selected category
+3) Validate for mandatory fields on different forms
+
+
+function onSubmit() {
+var pri = g_form.getValue('priority');
+if(pri == '1')
+{
+var uInput = confirm("Are you sure to create P1 incident?");
+if(uInput == true){
+return true;
+}
+else{
+return false;
+}
+}
+
+
+
+#2 scenario
+
+when network assignment group is selected and category is hardware then user should not be able to create the incident
+
+
+
+=> onChange
+
+when a particular field value changes on the form. It is used when you want to perform some action on client when field value changes
+
+function onChange(control, oldValue, newValue, isLoading, isTemplate)
+
+Major use cases
+
+1) Show Alert when Priority change to p1
+2) Populate Assignment group when CI changes
+3) Make Assignment group field mandatory when category is Hardware
+
+
+=> onCellEdit Client script
+
+When user change value of a field in a list. It is used when you want to perform some actions on client when
+field value changes in a list
+
+Major use cases of onCellEdit
+
+1) Stop user for changing short description form list view
+2) Field values calculation on change of fields in list view
+3) Validating dates before saving the data in list view
+
+Examples
+#1 When short description is changed in list view then system should populate the confirm box before applying.
+
+befor callback 
+
+var uInput = confirm("Are you sure to update short description");
+if(uInput == true)
+{
+saveAndClose = true;
+}
+else {
+saveAndClose = false;
+}
+
+
+
+Technical Best Practices for client script
+
+1) Data Validation
+2) Right Order
+3) Enclose code in Functions
+4) Run necessary client scripts
+5) Do not use gliderecord query
+6) Minimize server lookup
+7) Avoid Global Client scripts
+8) Avoid DOM Manipulation
+9) Use of Display value in Set Value
+
