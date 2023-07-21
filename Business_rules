@@ -1,0 +1,68 @@
+=> Business Rules
+
+Server Side scripting and runs when record is displayed, inserted or updated or deleted or table is queried
+
+=> Types of Business Rules
+i) Before
+ii) After
+iii) Async
+iv) Display
+
+
+
+Actions performed by businesss rules
+
+i) Update the field value after creating the record as per the values of other fields
+ii) Stop user to update or insert record if invalid data is used
+iii) Display Information message when record is inserted
+iv) Created child tasks when parent is created
+
+Global Variables in Business Rules
+
+i) Current
+ii) Previous
+iii) g_scratchpad => Display
+iv) gs
+
+=> Before Business rule
+
+Before business rule is triggered when user submits the form however before any action is taken on the record in the database.
+
+Major Use Cases of Before BR
+
+i) Abort update of record if form does not have expected value
+ii) Populate Assignment group before creation of incident record
+iii) User should not delete a record if condition does not match
+iv) Date should be updated before insert of a record
+
+Scenario
+If state is new then user should not be able to delete the incident
+You cannot create a new record as you already have existing one.
+User should not be able to change the state of story to work in progress if there is no scrum task created in the story.
+
+Var gr = new GlideRecord(‘rm_scrum_task’);
+gr.addQuery(‘story’, current.sys_id);
+gr.query();
+If(!gr.next())
+{
+	current .setAbortAction(true);
+}
+
+Configuration item cannot be deleted if there are tasks or incidents associated with same CI
+
+var gr = new GlideRecord(‘task’);
+gr.addQuery(‘cmdb_ci’,current.sys_id);
+Gr.query();
+If(gr.next())
+{
+	current.setAbortAction(true);
+}
+
+Before Query ﻿ ﻿ ﻿
+
+ ﻿Only Operational CI should be queried if user is not admin
+
+condition
+!(gs.getUser().hasRole(‘admin’))
+
+Script: current.addQuery(‘Operational_status’, “1”)
