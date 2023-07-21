@@ -66,3 +66,57 @@ condition
 !(gs.getUser().hasRole(‘admin’))
 
 Script: current.addQuery(‘Operational_status’, “1”)
+
+
+
+=> After Business rule
+
+After Business Rule is triggered when user submits the form and any action is taken on the record in the database.
+
+Major use cases of After BR
+i) Showing message after creation of record
+ii) Create problem task after creation of problem record
+iii) Delete associated records after deletion of parent records
+iv) Update the worknotes of child incident when parent worknotes are updated
+
+insert scenario
+
+i) user should see message at the top when story is created
+
+update scenario
+
+i) When the priority of incident is chaned to p1 then it should be updated in description
+
+ii) When state changes to work in progress then scrum tasks should be created
+
+
+=> Async Business rule
+
+Async business rule is triggered when user submits the form and any action is taken on the record in the database however it creates a schedule and run the job
+
+
+Major Use Cases of Async BR
+
+i) Create Event
+ii) Send REST API Call to another application on update of incident
+iii) Calculating SLA
+
+
+insert scenario
+i) When incident is inserted with priority1 then create an event to send notification
+
+ii) When Assignment group changes then update the Task SLA Group to current Assignment Group
+
+
+
+=> Display Business rule
+
+Display business rule is triggered when user opens a form.
+
+Major use cases
+
+i) Storing field value for client
+ii) Displaying Message on the form
+
+
+g_scratchpad.sd = current.short_description
