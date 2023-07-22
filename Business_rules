@@ -180,3 +180,16 @@ gr.work_notes = "This worknote if updated in "+current.number + "\n" + workNotes
 }
 gr.update();
 
+
+
+Calculate leaves
+
+var gr = new GlideRecord('x_26328_lms_leave_bucket');
+gr.addQuery('employee', current.requested_by);
+gr.addQuery('leave_type',current.leave_type);
+gr.query();
+if(!gr.next()){
+gr.balance = gr.balance - current.duration;
+gr.taken = gr.taken+current.duration;
+gr.update();
+}
