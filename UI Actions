@@ -1,0 +1,89 @@
+UI Actions
+
+1) scenario 1
+
+There should be a button on incident form to copy incident details and create a child incident
+
+Solution:
+
+Action name - copy_parent_create_child
+
+var gr = new GlideRecord('incident');
+gr.initialize();
+gr.short_description = current.short_description;
+gr.caller_id = current.caller_id;
+gr.parent_incident = current.sys_id;
+gr.work_notes = "This incident is copied from "+current.number;
+gr.insert();
+
+action.setRedirectURL(current);
+
+2) Scenario2
+
+There should be a button on incident form. when user clicks the button, system should update priority of incident to P1 and do not save the record.
+
+solution:
+action name= set_to_p1
+
+client = true
+onclick = setPriorityDemo()
+
+condition: current.priority!=1
+
+function setPriorityDemo() {
+g_form.setValue('impact',1);
+g_form.setValue('urgency',1);
+}
+
+3) scenario3
+
+There should be a button on incident form. 
+when user clicks the button, system should update priority of incident to P1 and save the record
+
+solution
+client = true
+onclick = updateToP1();
+
+function updateToP1(){
+alert("you are going to upgrade the priority on Incident to P1");
+gsftSubmit(null,g_form.getFormElement(),action name); // make use of action name
+}
+
+if(typeof window == 'undefined')
+updatePriority();
+
+function updatePriority() {
+	current.urgency = '1';
+	current.impact = '1';
+	current.update();
+	action.setRedirectURL(current);
+}
+
+
+4) Scenario4
+
+There should be a button on problem record to create 2 problem tasks automatically associated with same problem
+
+action name - create_ptasks
+
+var sd = ["Test Demo 1","Test Demo 2"];
+for(i=0;i< sd.length;i++)
+{
+ var gr = new GlideRecord('problem_task');
+ gr.initialize();
+ gr.short_description = sd[i];
+ gr.description = current.short_description;
+ gr.problem = current.sys_id;
+ gr.problem_task_type = 'general';
+ gr.insert();
+}
+
+action.setRedirectURL(current);
+
+5) Scenario5
+
+There should be a button on problem form to open new incident form so that user can create new one
+
+var url = '/incident.do?sys_id=-1';
+action.setRedirectURL(url);
+
