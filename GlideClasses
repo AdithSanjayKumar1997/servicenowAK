@@ -1,0 +1,77 @@
+GLide Classes
+
+=>	GlideRecord
+
+Operators available in GlideRecord
+
+!=
+>
+>=
+<
+<=
+
+strings(must be in upper case)
+IN
+NOT IN
+STARTSWITH
+ENDSWITH
+CONTAINS
+DOES NOT CONTAIN
+INSTANCEOF
+
+
+=> GlideAjax
+Json.stringify()
+Json.parse()
+
+=> GlideAggregate
+
+Var ga = new GlideAggregate(‘incident’);
+Ga.addQuery(‘category’,’inquiry’);
+Ga.addAggregate(‘count’,’category’);
+Ga.orderBy(‘category’);
+Ga.query();
+while(ga.next())
+
+Var incCount = ga.getAggregate(‘count’,’category’);
+Gs.addInfoMessage(‘Display count {0} ‘,[incidentCount]);
+
+=> GlideRecordSecure
+
+GlideRecordSecure is a class inherited from GlideRecord that performs the same functions as GlideRecord and enforces ACLs
+
+OOB Functions in GlideRecord to check ACLs
+ I) canCreate()
+ii) canRead()
+iii) canWrite()
+iv) canDelete()
+
+=> GlideEncrypter
+
+GlideEncrypter provides methods to encrypt and decrypt strings using the triple DES algorithm.
+
+Var ge = new GlideEncrypter();
+Var str = ’12345’;
+Var es = ge.encrypt(str);
+Gs.info(‘encrypt is’+es);
+Var des = ge.decrypt(es);
+Gs.info(‘decrypt is’+des);
+
+
+=> GlideScriptRecordUtil 
+
+It is used to check the changed fields and values on the form when a record is updated
+
+Get Changed field name labels
+I) grsu.getChangedFields();
+
+Get Changed field database names
+I) grsu.getChangedFieldNames();
+
+Get Changed values
+I) grsu.getChanges();
+
+
+
+
+
