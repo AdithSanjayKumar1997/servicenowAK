@@ -87,3 +87,23 @@ There should be a button on problem form to open new incident form so that user 
 var url = '/incident.do?sys_id=-1';
 action.setRedirectURL(url);
 
+6) scenario6
+
+Create a button called Closed My Incident on incident form. 
+so when user click on that button incident will be resolved or close with correct resolution code. 
+This UI action only visible on new  state and created by user
+
+onClick = doProcess
+
+function doProcess() {
+if(confirm('Do you want to cancel this incident?')) {
+	gsftSubmit(null, g_form.getElement(), 'cancel_incident');
+}
+}
+
+current.state = 8;
+current.close_notes = "closed by opened user" ;
+current.update();
+action.setRedirectURL(current);
+
+
