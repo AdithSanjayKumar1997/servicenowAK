@@ -120,3 +120,42 @@ ii) Displaying Message on the form
 
 
 g_scratchpad.sd = current.short_description
+
+
+5 Use cases of Business Rules
+
+1. When story record is created then it should automatically create 4 different scrum tasks records of development, testing, analysis, documentation ﻿
+
+var type = [“Analysis”,”Coding”,”Documentation”,”Testing”];
+for(i=0;i<type.length;i++)
+{
+var gr = new GlideRecord(‘rm_scrum_task’);
+Gr.initialize();
+Gr.story = current.sys_id;
+Gr.short_description = type[i];
+Var j= i+1;
+Gr.type = j + ‘’;
+Gr.insert();
+}
+
+2. There should be a field on problem form which should show the number of incident records associated with same form
+
+var gr = new GlideRecord(‘problem’);
+Gr.addQuery(’sys_id’,current.problem_id);
+Gr.query();
+If(gr.next())
+{
+Gr.u_associated_incidents = gr.u_associated_incidents + 1;
+}
+gr.update();
+
+
+3. If all the Catalog Tasks request are closed completed then request item should automatically closed
+
+Var gr = new GlideRecord(’sc_task’);
+Gr.addQuery(‘request_item’,current.request_item);
+Gr.addQuery(’state’,’!=‘,’3’);
+Gr.query();
+If(!gr.next()){
+Var grItem = new GlideRecord(’sc_req_item’);
+grItem.addQuery('
