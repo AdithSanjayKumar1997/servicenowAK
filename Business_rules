@@ -158,4 +158,25 @@ Gr.addQuery(’state’,’!=‘,’3’);
 Gr.query();
 If(!gr.next()){
 Var grItem = new GlideRecord(’sc_req_item’);
-grItem.addQuery('
+grItem.addQuery('sys_id', current.request_item);
+grItem.query();
+if(grItem.next()) 
+{
+grItem.state = '3';
+}
+grItem.update();
+}
+
+4. User should not be able to resolve the incident if change record mentioned in change request field is not closed.
+
+5. If users updates work notes of problem task then it should update same work notes in parent problem record as well with highlighting problem task number.
+
+var workNotes = current.work_notes.getJournalEntry(1);
+var gr = new GlideRecord('problem');
+gr.addQuery('sys_id', current.problem);
+gr.query();
+if(gr.next()){
+gr.work_notes = "This worknote if updated in "+current.number + "\n" + workNotes;
+}
+gr.update();
+
