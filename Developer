@@ -1,0 +1,96 @@
+Developer Training
+
+=> client side scripting
+1) Ajax Client scripts
+2) UI Policy
+3) Client Scripts
+4) UI Context Menus
+5) Validation Scripts
+6) UI Action
+7) Service Catalog UI Policy
+
+=> Server Side Scripting
+1) Access control list
+2) Business Rules
+3) Ajax Server Scripts
+4) Script Actions
+5) Script Includes
+6) Transform Map
+7) UI Actions
+8) UI Context Menus
+9) Workflow editor
+
+=> GlideClass
+
+1) Server - Side
+I) GlideRecord
+II) GlideElement
+III) GlideSystem
+IV) GlideDateTime
+V) GlideAggregate
+
+2) Client script
+I) GlideAjax
+II) GlideDialog Window
+III) GlideForm
+IV) GlideMenu
+V) GlideList2
+VI) GlideUser
+VII GlideFlow
+
+Syntax Editor Macros
+=> Macros provides shortcut for commonly used scripts
+=> It can be inserted in script editor with a text saved in Macros
+
+
+CLient Scripts = g_form
+
+1) Add Decoration(To show Icon
+2) AddErrorMessage(To show error
+3) AddInfoMessage
+4) AddOption
+5) ClearOptions
+6) ClearValue()
+7) Disable Attachments
+8) enableAttachments
+9) Flash
+10)  getBooleanValue
+11) getControl (change colour of incident number text in blue when form loads
+12) getLabelOf
+13) getDecimalValue()
+14) getIntValue()
+15) getLabelOf
+16) getValue
+17) hideRelatedList()
+18) hideRelatedLists()
+19) isLiveUpdating()
+20) isMandatory()
+21) isNewRecord()
+22) isSectionVisible
+23) removeDecoration
+24) removeOption
+25) save
+26) setDisabled
+27) setDisplay
+28) setLabelOf
+29) setMandatory
+30) setReadOnly
+31) SetSectionDisplay()
+32) setValue()
+33) showErrorBox
+34) showFieldMsg
+35) showRelatedList
+36) submit
+
+Debug Client Scripts
+
+=> Tools for Debugging Client Scipts
+1) Javascript log
+2) Response Time Indicator
+3) Try / Catch of JavaScript
+4) Field Watcher
+
+How to write a JavaScript Log
+1) Jslog() Method
+
+
