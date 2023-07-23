@@ -1,0 +1,22 @@
+UI Policy
+
+=> It is used to make fields mandatory, visible and read-only on the form
+=> runs on form
+=> you can write a script
+=> can be applied only on the main form of the table.
+
+Data Policy
+=> It is used to make fields mandatory and read-only in the backend at server level
+=> runs on server side
+=> No script
+=> Applied to the data into the system via different ways like import sets, web services and mobile UI.
+
+Scenarios
+
+=> On Incident form, Assigned to and Assignment Group fields should become mandatory if user changes the state to In Progress
+
+=> On Story form, Acceptance criteria should become read only if acceptance criteria is not empty and state is Work in progress
+
+=> On Incident form, If category is selected as Database then service field should not be visible to the user.
+
+=> Affected CI related list should only be visible on Incident form when configuration Item field is not empty on incident form
