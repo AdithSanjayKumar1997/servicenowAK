@@ -1,0 +1,11 @@
+
+1 Tables
+2 /si 				(script includes)
+3 /u fred 		(searches for user names)
+4 /lang en 		(changes to other languages)
+5 /rnd			(fill all the fields)
+6 /tn				(show all technical names)
+7 /comm		(community)
+8 /acl			(filter acl list table)
+9 /api 			(search the api)
+10 /aw			(agent workspace
