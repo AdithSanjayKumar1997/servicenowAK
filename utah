@@ -1,0 +1,67 @@
+UTAH Features
+
+1.	Dark Theme:
+a.	My Profile > Preferences: Default & Dark (choose dark)
+  
+Dark theme is available on Next Experience pages such as the out-of-the-box landing page or configurable workspaces, Classic Environment lists, forms, dashboards, and reports.
+ 
+Here's a quick list of where dark theme in Utah is supported:
+ 
+•	Lists and Forms
+•	Dashboards, Dashboard Overview, Dashboard widgets, and Analytics Hub
+•	Report Designer/Builder, all Reports, and Performance Analytics widgets
+•	Knowledge articles, Service Catalog, Virtual Agent Client, and the Visual Task Board landing page
+ 
+Dark theme is not enabled by default on Utah, administrators can enable it with the glide.ui.polaris.dark_themes_enabled system property. In order to use Dark theme on Classic Environment lists and forms, set the glide.ui.polaris.core_ui_exclude_dark_mode system property to false.
+
+2.	Theme Builder:
+a.	Plugins > Theme Builder
+
+https://www.servicenow.com/community/next-experience-articles/theme-builder-the-simple-way-to-customize-your-instance/ta-p/2527483
+
+3.	Auto-populate Variable.
+a.	For example with the help of requested for we can populate requested for – manager and location etc
+
+https://www.servicenow.com/community/developer-articles/auto-populate-a-variable-based-on-a-reference-type-variable-utah/ta-p/2475511
+
+4.	Script Editor
+a.	Scrollable one for the code to the right side with different colors
+b.	Identity center
+i.	Plugins > identity center
+Can see active sessions & login History
+
+https://docs.servicenow.com/en-US/bundle/utah-platform-security/page/integrate/identity/concept/identity-center.html
+
+5.	Flow Designer
+a.	Convert items to a subflow
+i.	Convert consecutive items of a flow into a new subflow that preserves data pill references between the converted items. Update the original flow to replace the converted items with a call to the new subflow.
+
+b.	FlowAPI - getFlowStages(String, scopedFlowName)
+i.	Return a JSON string containing the list of flow stages.
+
+c.	FlowAPI - restartFlowFromContext(String ContextId, Map providedInputs)
+i.	Restarts a flow, subflow, or action that was run in the background. You can provide new inputs or omit them to reuse the previously provided inputs.
+
+d.	FlowAPI - scheduleCancel(String contextId, String reason, Integer delaySeconds)
+i.	Schedule a system event in the Flow Engine Queue to cancel a flow that is in the in progress, presumed interrupted, or waiting state after a delay.
+
+e.	Stages support in flow diagramming
+i.	Display the stages that are available to a flow from the flow diagramming view.
+
+
+f.	Flow Priority
+i.	Specify the priority that you want a background flow to have in relation to other flows waiting to be run. Run a group of higher priority flows before running any lower priority flows.
+
+g.	See the related flows for an action
+i.	See the list of flows that include a custom action. Determine the impact that changes to an action have on published and draft flows.
+
+6.	Table Builder
+https://docs.servicenow.com/en-US/bundle/utah-application-development/page/administer/form-builder/concept/using-fb.html
+
+7.	Integration Hub Import
+https://docs.servicenow.com/en-US/bundle/utah-integrate-applications/page/administer/integrationhub/concept/integrationhub-imports.html
+
+
+
+
+
