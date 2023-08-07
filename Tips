@@ -10,3 +10,7 @@
 3. To set logged In user
 
 => We can make use of default value in Dictionary or client side scripting is better
+
+4. Open Email from Activity Log
+=> Create a system property (glide.ui.activity.style.email)
+https://www.servicenow.com/community/developer-articles/open-a-sys-email-record-directly-from-the-activity-log-easy/ta-p/2323109
